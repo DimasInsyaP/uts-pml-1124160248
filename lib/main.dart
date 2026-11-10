@@ -105,7 +105,31 @@ class ProfilePage extends StatelessWidget {
                 ),
 
                 const SizedBox(height: 15),
-                
+
+                Card(
+                  child: Column(
+                    children: const [
+                      ListTile(
+                        title: Text('Keahlian dan Hobi'),
+                      ),
+                      InfoTile(
+                        icon: Icons.computer,
+                        label: 'Keahlian',
+                        value: 'Programming',
+                      ),
+                      InfoTile(
+                        icon: Icons.web,
+                        label: 'Bidang',
+                        value: 'Web Development',
+                      ),
+                      InfoTile(
+                        icon: Icons.sports_esports,
+                        label: 'Hobi',
+                        value: 'Gaming',
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
