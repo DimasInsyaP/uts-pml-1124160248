@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(const MyApp());
 }
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -12,19 +13,19 @@ class MyApp extends StatelessWidget {
       title: 'Profil Mahasiswa',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-  scaffoldBackgroundColor: Colors.white,
-  colorSchemeSeed: Colors.green,
-  brightness: Brightness.light,
-  useMaterial3: true,
-),
-     themeMode: ThemeMode.light,
+        scaffoldBackgroundColor: Colors.white,
+        colorSchemeSeed: Colors.green,
+        brightness: Brightness.light,
+        useMaterial3: true,
+      ),
+      themeMode: ThemeMode.light,
       darkTheme: ThemeData(
         colorSchemeSeed: Colors.blue,
         brightness: Brightness.dark,
         useMaterial3: true,
       ),
       home: const ProfilePage(),
-      );
+    );
   }
 }
 
@@ -47,6 +48,17 @@ class ProfilePage extends StatelessWidget {
           ),
         ],
       ),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              children: const [
+              ],
+            ),
+          ),
+        ),
+      ), 
     );
   }
 }
