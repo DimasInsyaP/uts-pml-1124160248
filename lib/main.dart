@@ -9,6 +9,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Profil Mahasiswa');
+      title: 'Profil Mahasiswa',
+      debugShowCheckedModeBanner: false);
   }
 }
