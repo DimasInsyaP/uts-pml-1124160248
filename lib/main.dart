@@ -53,7 +53,23 @@ class ProfilePage extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(20),
             child: Column(
-              children: const [
+              children: [
+                const CircleAvatar(
+                  radius: 55,
+                  child: Icon(Icons.person, size: 60),
+                ),
+                Text(
+                  'Dimas Insya Putra',
+                  style: Theme.of(context).textTheme.headlineSmall,
+                ),
+                Text(
+                  'NIM: 1124160248',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+                Text(
+                  'Program Studi: Teknik Informatika',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
               ],
             ),
           ),
