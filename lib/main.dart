@@ -73,6 +73,39 @@ class ProfilePage extends StatelessWidget {
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
                 const SizedBox(height: 25),
+
+                Card(
+                  child: Column(
+                    children: const [
+                      ListTile(
+                        title: Text('Informasi Kontak'),
+                      ),
+                      InfoTile(
+                        icon: Icons.email,
+                        label: 'Email',
+                        value: '1124160248@global.ac.id',
+                      ),
+                      InfoTile(
+                        icon: Icons.phone,
+                        label: 'Nomor HP',
+                        value: '088291282329',
+                      ),
+                      InfoTile(
+                        icon: Icons.school,
+                        label: 'Kelas',
+                        value: 'Malam',
+                      ),
+                      InfoTile(
+                        icon: Icons.code,
+                        label: 'GitHub',
+                        value: 'github.com/DimasInsyaP',
+                      ),
+                    ],
+                  ),
+                ),
+
+                const SizedBox(height: 15),
+                
               ],
             ),
           ),
