@@ -10,6 +10,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Profil Mahasiswa',
-      debugShowCheckedModeBanner: false);
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+  scaffoldBackgroundColor: Colors.white,
+  colorSchemeSeed: Colors.green,
+  brightness: Brightness.light,
+  useMaterial3: true,
+),
+     themeMode: ThemeMode.light,
+      darkTheme: ThemeData(
+        colorSchemeSeed: Colors.blue,
+        brightness: Brightness.dark,
+        useMaterial3: true,
+      ));
   }
 }
