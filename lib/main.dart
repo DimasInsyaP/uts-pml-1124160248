@@ -58,10 +58,12 @@ class ProfilePage extends StatelessWidget {
                   radius: 55,
                   child: Icon(Icons.person, size: 60),
                 ),
+                const SizedBox(height: 16),
                 Text(
                   'Dimas Insya Putra',
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),
+                const SizedBox(height: 8),
                 Text(
                   'NIM: 1124160248',
                   style: Theme.of(context).textTheme.bodyMedium,
@@ -70,6 +72,7 @@ class ProfilePage extends StatelessWidget {
                   'Program Studi: Teknik Informatika',
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
+                const SizedBox(height: 25),
               ],
             ),
           ),
