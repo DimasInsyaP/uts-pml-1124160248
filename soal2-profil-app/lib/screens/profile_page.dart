@@ -3,8 +3,57 @@ import 'package:flutter/material.dart';
 import '../widgets/profile_avatar.dart';
 import 'edit_profile_page.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
+
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+
+String nama = 'Dimas Insya Putra';
+String nim = '1124160248';
+String prodi = 'Teknik Informatika';
+String kelas = 'Non Reguler';
+String bio =
+    'Mahasiswa yang tertarik pada teknologi dan pengembangan aplikasi.';
+String email = '1124160248@global.ac.id';
+String hp = '088291282329';
+String github = 'DimasInsyaP';
+
+Future<void> bukaEditProfil() async {
+  final dataBaru = await Navigator.push<Map<String, String>>(
+    context,
+    MaterialPageRoute(
+      builder: (context) => EditProfilePage(
+  dataProfil: {
+    'nama': nama,
+    'nim': nim,
+    'prodi': prodi,
+    'kelas': kelas,
+    'bio': bio,
+    'email': email,
+    'hp': hp,
+    'github': github,
+  },
+),
+    ),
+  );
+
+  if (dataBaru != null) {
+    setState(() {
+      nama = dataBaru['nama']!;
+      nim = dataBaru['nim']!;
+      prodi = dataBaru['prodi']!;
+      kelas = dataBaru['kelas']!;
+      bio = dataBaru['bio']!;
+      email = dataBaru['email']!;
+      hp = dataBaru['hp']!;
+      github = dataBaru['github']!;
+    });
+  }
+}
 
   @override
   Widget build(BuildContext context) {
@@ -16,14 +65,7 @@ class ProfilePage extends StatelessWidget {
     IconButton(
       icon: const Icon(Icons.edit),
       tooltip: 'Edit Profil',
-      onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const EditProfilePage(),
-          ),
-        );
-      },
+      onPressed: bukaEditProfil,
     ),
   ],
 ),
@@ -34,25 +76,25 @@ class ProfilePage extends StatelessWidget {
             const ProfileAvatar(),
             const SizedBox(height: 16),
 
-            const Text(
-              'Dimas Insya Putra',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+            Text(
+                 nama,
+               style: const TextStyle(
+               fontSize: 24,
+               fontWeight: FontWeight.bold,
+                  ),
+                ),
             const SizedBox(height: 8),
 
-            const Text('NIM: 1124160248'),
-            const Text('Program Studi: Teknik Informatika'),
-            const Text('Kelas: Non Reguler'),
+            Text('NIM: $nim'),
+            Text('Program Studi: $prodi'),
+            Text('Kelas: $kelas'),
 
             const SizedBox(height: 16),
 
-            const Text(
-              'Mahasiswa yang tertarik pada teknologi dan pengembangan aplikasi.',
+            Text(
+              bio,
               textAlign: TextAlign.center,
-            ),
+              ),
 
             const SizedBox(height: 24),
 
@@ -66,27 +108,27 @@ class ProfilePage extends StatelessWidget {
 
             const SizedBox(height: 12),
 
-            const Card(
+             Card(
               child: ListTile(
                 leading: Icon(Icons.email_outlined),
                 title: Text('Email'),
-                subtitle: Text('1124160248@global.ac.id'),
+                subtitle: Text(email),
               ),
             ),
 
-            const Card(
+             Card(
               child: ListTile(
                 leading: Icon(Icons.phone_outlined),
                 title: Text('Nomor HP'),
-                subtitle: Text('088291282329'),
+                subtitle: Text(hp),
               ),
             ),
 
-            const Card(
+             Card(
               child: ListTile(
                 leading: Icon(Icons.code),
                 title: Text('GitHub'),
-                subtitle: Text('DimasInsyaP'),
+                subtitle: Text(github),
               ),
             ),
           ],

@@ -2,7 +2,12 @@
 import 'package:flutter/material.dart';
 
 class EditProfilePage extends StatefulWidget {
-  const EditProfilePage({super.key});
+  final Map<String, String> dataProfil;
+
+  const EditProfilePage({
+    super.key,
+    required this.dataProfil,
+  });
 
   @override
   State<EditProfilePage> createState() => _EditProfilePageState();
@@ -11,31 +16,29 @@ class EditProfilePage extends StatefulWidget {
 class _EditProfilePageState extends State<EditProfilePage> {
   final _formKey = GlobalKey<FormState>();
 
-  final TextEditingController namaController =
-      TextEditingController(text: 'Dimas Insya Putra');
+  late final TextEditingController namaController =
+    TextEditingController(text: widget.dataProfil['nama']);
 
-  final TextEditingController nimController =
-      TextEditingController(text: '1124160248');
+late final TextEditingController nimController =
+    TextEditingController(text: widget.dataProfil['nim']);
 
-  final TextEditingController prodiController =
-      TextEditingController(text: 'Teknik Informatika');
+late final TextEditingController prodiController =
+    TextEditingController(text: widget.dataProfil['prodi']);
 
-  final TextEditingController kelasController =
-      TextEditingController(text: 'Non Reguler');
+late final TextEditingController kelasController =
+    TextEditingController(text: widget.dataProfil['kelas']);
 
-  final TextEditingController bioController =
-      TextEditingController(
-    text: 'Mahasiswa yang tertarik pada teknologi dan pengembangan aplikasi.',
-  );
+late final TextEditingController bioController =
+    TextEditingController(text: widget.dataProfil['bio']);
 
-  final TextEditingController emailController =
-      TextEditingController(text: '1124160248@global.ac.id');
+late final TextEditingController emailController =
+    TextEditingController(text: widget.dataProfil['email']);
 
-  final TextEditingController hpController =
-      TextEditingController(text: '088291282329');
+late final TextEditingController hpController =
+    TextEditingController(text: widget.dataProfil['hp']);
 
-  final TextEditingController githubController =
-      TextEditingController(text: 'DimasInsyaP');
+late final TextEditingController githubController =
+    TextEditingController(text: widget.dataProfil['github']);
 
   @override
   void dispose() {
@@ -49,6 +52,21 @@ class _EditProfilePageState extends State<EditProfilePage> {
     githubController.dispose();
     super.dispose();
   }
+
+  void simpanProfil() {
+  final dataBaru = {
+    'nama': namaController.text,
+    'nim': nimController.text,
+    'prodi': prodiController.text,
+    'kelas': kelasController.text,
+    'bio': bioController.text,
+    'email': emailController.text,
+    'hp': hpController.text,
+    'github': githubController.text,
+  };
+
+  Navigator.pop(context, dataBaru);
+}
 
   void _validasiForm() {
     if (_formKey.currentState!.validate()) {
@@ -124,13 +142,20 @@ class _EditProfilePageState extends State<EditProfilePage> {
 
               const SizedBox(height: 10),
 
+              const SizedBox(height: 10),
+
               SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: _validasiForm,
-                  child: const Text('Simpan'),
-                ),
-              ),
+  width: double.infinity,
+  child: ElevatedButton.icon(
+    onPressed: () {
+      if (_formKey.currentState!.validate()) {
+        simpanProfil();
+      }
+    },
+    icon: const Icon(Icons.save),
+    label: const Text('Simpan'),
+  ),
+),
             ],
           ),
         ),
