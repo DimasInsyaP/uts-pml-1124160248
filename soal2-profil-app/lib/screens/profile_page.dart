@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import '../widgets/profile_avatar.dart';
+import 'edit_profile_page.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -9,9 +10,23 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Profil Pengguna'),
-        centerTitle: true,
-      ),
+  title: const Text('Profil Pengguna'),
+  centerTitle: true,
+  actions: [
+    IconButton(
+      icon: const Icon(Icons.edit),
+      tooltip: 'Edit Profil',
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const EditProfilePage(),
+          ),
+        );
+      },
+    ),
+  ],
+),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
         child: Column(
