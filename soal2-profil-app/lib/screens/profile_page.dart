@@ -59,28 +59,65 @@ Future<void> bukaEditProfil() async {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+    child: ListView(
+      padding: EdgeInsets.zero,
+      children: [
+        DrawerHeader(
+          decoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.primary,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              const Icon(
+                Icons.account_circle,
+                size: 50,
+                color: Colors.white,
+              ),
+              const SizedBox(height: 10),
+              Text(
+                nama,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const Text(
+                'Profil Pengguna',
+                style: TextStyle(color: Colors.white),
+              ),
+            ],
+          ),
+        ),
+        ListTile(
+          leading: const Icon(Icons.person),
+          title: const Text('Profil'),
+          onTap: () {
+            Navigator.pop(context);
+          },
+        ),
+        ListTile(
+          leading: const Icon(Icons.info_outline),
+          title: const Text('Tentang Saya'),
+          onTap: () {
+            Navigator.pop(context);
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const AboutPage(),
+              ),
+            );
+          },
+        ),
+      ],
+    ),
+  ),
       appBar: AppBar(
   title: const Text('Profil Pengguna'),
   centerTitle: true,
-  actions: [
-    IconButton(
-      icon: const Icon(Icons.edit),
-      tooltip: 'Edit Profil',
-      onPressed: bukaEditProfil,
-    ),
-    IconButton(
-  icon: const Icon(Icons.info_outline),
-  tooltip: 'Tentang Saya',
-  onPressed: () {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const AboutPage(),
-      ),
-    );
-  },
-),
-  ],
 ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
@@ -147,6 +184,33 @@ Future<void> bukaEditProfil() async {
           ],
         ),
       ),
+      floatingActionButton: Column(
+  mainAxisSize: MainAxisSize.min,
+  children: [
+    FloatingActionButton(
+      heroTag: 'aboutButton',
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const AboutPage(),
+          ),
+        );
+      },
+      tooltip: 'Tentang Saya',
+      child: const Icon(Icons.info_outline),
+    ),
+
+    const SizedBox(height: 12),
+
+    FloatingActionButton(
+      heroTag: 'editButton',
+      onPressed: bukaEditProfil,
+      tooltip: 'Edit Profil',
+      child: const Icon(Icons.edit),
+    ),
+  ],
+),
     );
   }
 }
