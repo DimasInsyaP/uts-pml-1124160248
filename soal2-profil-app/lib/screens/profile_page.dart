@@ -5,7 +5,14 @@ import 'edit_profile_page.dart';
 import 'about_page.dart';
 
 class ProfilePage extends StatefulWidget {
-  const ProfilePage({super.key});
+  final bool isDarkMode;
+  final ValueChanged<bool> onThemeChanged;
+
+  const ProfilePage({
+    super.key,
+    required this.isDarkMode,
+    required this.onThemeChanged,
+  });
 
   @override
   State<ProfilePage> createState() => _ProfilePageState();
@@ -92,6 +99,12 @@ Future<void> bukaEditProfil() async {
             ],
           ),
         ),
+        SwitchListTile(
+  secondary: const Icon(Icons.dark_mode_outlined),
+  title: const Text('Mode Gelap'),
+  value: widget.isDarkMode,
+  onChanged: widget.onThemeChanged,
+),
         ListTile(
           leading: const Icon(Icons.person),
           title: const Text('Profil'),
