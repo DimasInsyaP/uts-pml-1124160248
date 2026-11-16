@@ -13,7 +13,7 @@ class AboutPage extends StatelessWidget {
       ),
       body: ListView(
         padding: const EdgeInsets.all(20),
-        children: const [
+        children:  [
           Text(
             'Tentang Saya',
             style: TextStyle(
@@ -26,6 +26,41 @@ class AboutPage extends StatelessWidget {
             'Halaman ini berisi informasi mengenai keahlian, '
             'hobi, dan riwayat pendidikan saya.',
           ),
+          SizedBox(height: 20),
+
+Text(
+  'Keahlian dan Hobi',
+  style: TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.bold,
+  ),
+),
+
+SizedBox(height: 10),
+
+Card(
+  child: ListTile(
+    leading: Icon(Icons.phone_android),
+    title: Text('Flutter Development'),
+    subtitle: Text('Pengembangan aplikasi mobile'),
+  ),
+),
+
+Card(
+  child: ListTile(
+    leading: Icon(Icons.web),
+    title: Text('Web Development'),
+    subtitle: Text('Pembuatan dan pengembangan website'),
+  ),
+),
+
+Card(
+  child: ListTile(
+    leading: Icon(Icons.code),
+    title: Text('Programming'),
+    subtitle: Text('Mempelajari bahasa pemrograman'),
+  ),
+),
         ],
       ),
     );
