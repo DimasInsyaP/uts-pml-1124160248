@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import '../widgets/profile_avatar.dart';
 import 'edit_profile_page.dart';
+import 'about_page.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -67,6 +68,18 @@ Future<void> bukaEditProfil() async {
       tooltip: 'Edit Profil',
       onPressed: bukaEditProfil,
     ),
+    IconButton(
+  icon: const Icon(Icons.info_outline),
+  tooltip: 'Tentang Saya',
+  onPressed: () {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const AboutPage(),
+      ),
+    );
+  },
+),
   ],
 ),
       body: SingleChildScrollView(
