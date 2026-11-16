@@ -61,6 +61,34 @@ Card(
     subtitle: Text('Mempelajari bahasa pemrograman'),
   ),
 ),
+
+const SizedBox(height: 25),
+
+const Text(
+  'Riwayat Pendidikan',
+  style: TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.bold,
+  ),
+),
+
+const SizedBox(height: 10),
+
+const Card(
+  child: ListTile(
+    leading: Icon(Icons.school),
+    title: Text('Sekolah Menengah Atas'),
+    subtitle: Text('Pendidikan tingkat SMA/SMK'),
+  ),
+),
+
+const Card(
+  child: ListTile(
+    leading: Icon(Icons.account_balance),
+    title: Text('Global Institute'),
+    subtitle: Text('Program Studi Teknik Informatika'),
+  ),
+),
         ],
       ),
     );
